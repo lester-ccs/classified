@@ -18,6 +18,7 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
+        $this->artisan('db:seed', ['--class' => 'AreaTableSeeder']);
         $response = $this->get('/');
 
         $response->assertStatus(200);
