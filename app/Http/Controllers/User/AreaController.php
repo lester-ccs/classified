@@ -13,6 +13,6 @@ class AreaController extends Controller
         session()->put('area', $area->slug);
 
         //redirect to a category index
-        return redirect()->back();
+        return redirect()->route('category.index', [$area]);
     }
 }
