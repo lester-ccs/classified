@@ -13,7 +13,7 @@ class CategoryController extends Controller
     {
         // eager load in listings later
 
-        $categories = Category::get()->toTree();
+        $categories = Category::withListingsInArea($area)->get()->toTree();
 
         return view('categories.index', compact('categories'));
 
