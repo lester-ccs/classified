@@ -14,7 +14,8 @@
             </li>
             <li>{{ $listing->user->name }}</li>
         </ul>
+
+        {{ $links or '' }}
+        {{--@yield('links')--}}
     </div>
 </div>
-
-@yield('links')

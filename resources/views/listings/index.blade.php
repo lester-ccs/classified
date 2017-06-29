@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h4>{{ $category->parent->name }} &nbsp; > &nbsp; {{ $category->name }}</h4>
+        <h4>{{ $category->parent->name }} &nbsp;&nbsp; > &nbsp; {{ $category->name }}</h4>
 
         <hr>
 

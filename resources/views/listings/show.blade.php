@@ -9,7 +9,14 @@
                         <div class="panel-body">
                             <div class="nav nav-sacked">
                                 <li><a href="">Email to a friend</a> </li>
-                                <li><a href="">Add to favourites</a> </li>
+                                @if (!$listing->favouritedBy(Auth::user()))
+                                    <li>
+                                        <a href="#" onclick="event.preventDefault(); document.getElementById('listings-favourite-form').submit();">Add to favourites</a>
+                                        <form action="{{ route('listings.favourites.store',[$area, $listing]) }}" method="post" id="listings-favourite-form" class="hidden">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                @endif
                             </div>
                         </div>
                     </div>

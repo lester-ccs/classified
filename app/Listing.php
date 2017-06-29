@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\Eloquent\OrderableTrait;
+use App\Traits\Eloquent\PivotOrderableTrait;
 
 class Listing extends Model
 {
-    use SoftDeletes, OrderableTrait;
+    use SoftDeletes, OrderableTrait, PivotOrderableTrait;
 
     public function scopeIsLive($query)
     {
@@ -56,5 +57,15 @@ class Listing extends Model
     public function area()
     {
         return $this->belongsTo(Area::class);
+    }
+
+    public function favourites()
+    {
+        return $this->morphToMany(User::class, 'favouriteable');
+    }
+
+    public function favouritedBy(User $user)
+    {
+        return $this->favourites->contains($user);
     }
 }
