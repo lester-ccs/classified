@@ -68,4 +68,16 @@ class Listing extends Model
     {
         return $this->favourites->contains($user);
     }
+
+    public function viewedUsers()
+    {
+        return $this->belongsToMany(User::class, 'user_listing_views')->withTimestamps()->withPivot(['count']);
+    }
+
+    public function views()
+    {
+//        return array_sum($this->viewedUsers->pluck('pivot.count')->toArray());
+        return $this->viewedUsers()->sum('count');
+    }
+
 }
