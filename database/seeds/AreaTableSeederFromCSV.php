@@ -15,7 +15,7 @@ class AreaTableSeederFromCSV extends Seeder
     {
         $csv = Reader::createFromPath('storage/app/countries.csv');
         $csv->setDelimiter(',');
-        $records = $csv->setOffset(1)->setLimit(10)->fetchAll(); //do not read the headers
+        $records = $csv->setOffset(1)->setLimit(500)->fetchAll(); //do not read the headers
         $tree = [];
         for ($i=0; $i <= count($records)-1; $i++) {
             $region = $records[$i][6];

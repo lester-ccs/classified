@@ -8,6 +8,6 @@
 
 return [
     'defaults' => [
-        'area' => 'us'
+        'area' => 'western-asia'
     ]
 ];
