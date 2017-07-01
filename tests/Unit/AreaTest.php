@@ -1,26 +1,27 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends TestCase
+class AreaTest extends TestCase
 {
     use DatabaseMigrations;
-
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testAreaTableSeederFromCSV()
     {
         $this->artisan('db:seed', ['--class' => 'AreaTableSeederFromCSV']);
-        $response = $this->get('/');
+        $area = config('classified.defaults.area');
+        $this->assertDatabaseHas('areas', [
+            'slug' => $area,
+        ]);
 
-        $response->assertStatus(200);
+        $this->assertTrue(true);
     }
 }

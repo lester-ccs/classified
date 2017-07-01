@@ -13,7 +13,7 @@ class AreaTableSeederFromCSV extends Seeder
      */
     public function run()
     {
-        $csv = Reader::createFromPath('storage/app/countries.csv');
+        $csv = Reader::createFromPath('database/files/countries.csv');
         $csv->setDelimiter(',');
         $records = $csv->setOffset(1)->setLimit(500)->fetchAll(); //do not read the headers
         $tree = [];
