@@ -95,41 +95,6 @@ class AreaTableSeeder extends Seeder
                         ],
                     ],
                 ],
-
-            ],
-            [
-                'name' => 'Middle East',
-                'children' => [
-                    ['name' => 'Oman', 'useable' => true],
-                    ['name' => 'Saudi Arabis', 'useable' => true],
-                    ['name' => 'United Arab Emrirates', 'useable' => true],
-                    ['name' => 'Quatar', 'useable' => true],
-                ],
-            ],
-            [
-                'name' => 'Europe',
-                'children' => [
-                    ['name' => 'London', 'useable' => true],
-                    ['name' => 'Paris', 'useable' => true],
-                    ['name' => 'Madrid', 'useable' => true],
-                    ['name' => 'Stockholm', 'useable' => true],
-                    ['name' => 'Copenhagen', 'useable' => true],
-                ],
-            ],
-            [
-                'name' => 'Asia',
-                'children' => [
-                    ['name' => 'Taiwan', 'useable' => true],
-                    ['name' => 'Hongkong', 'useable' => true],
-                    ['name' => 'Singapore', 'useable' => true],
-                ],
-            ],
-            [
-                'name' => 'Africa',
-                'children' => [
-                    ['name' => 'Nigeria', 'useable' => true],
-                    ['name' => 'Oman', 'useable' => true],
-                ],
             ],
         ];
 
