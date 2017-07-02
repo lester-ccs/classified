@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h4>{{ $category->parent->name }} &nbsp;&nbsp; > &nbsp; {{ $category->name }}</h4>
+    @include('listings.partials._search', [
+        'cateogry' => $category
+    ])
+
+    <h4>{{ $category->parent->name }} &nbsp;&nbsp;> &nbsp;&nbsp;{{ $category->name }}</h4>
 
     <hr>
 
