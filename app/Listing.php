@@ -84,5 +84,4 @@ class Listing extends Model
 //        return array_sum($this->viewedUsers->pluck('pivot.count')->toArray());
         return $this->viewedUsers()->sum('count');
     }
-
 }
