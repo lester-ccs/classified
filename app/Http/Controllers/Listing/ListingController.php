@@ -85,4 +85,13 @@ class ListingController extends Controller
 
         return back()->withSuccess('Listing edited successfully.');
     }
+
+    public function destroy(Area $area, Listing $listing)
+    {
+        $this->authorize('destroy', $listing);
+
+        $listing->delete();
+
+        return back()->withSuccess('Listing was deleted.');
+    }
 }

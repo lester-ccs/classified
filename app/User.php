@@ -40,4 +40,9 @@ class User extends Authenticatable
             ->withTimestamps()
             ->withPivot(['count', 'id']); //need this to expose count in pivot
     }
+
+    public function listings()
+    {
+        return $this->hasMany(Listing::class);
+    }
 }

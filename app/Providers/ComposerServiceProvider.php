@@ -7,6 +7,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Category;
 use App\Area;
+use App\Http\ViewComposers\NavigationComposer;
+
 class ComposerServiceProvider extends ServiceProvider
 {
     /**
@@ -17,6 +19,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('*', AreaComposer::class);
+        View::composer('layouts.partials._navigation', NavigationComposer::class);
 
         View::composer(['listings.partials.forms._categories'], function($view) {
             $categories = Category::get()->toTree();
