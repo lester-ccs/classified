@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="nav nav-sacked">
-                            <li><a href="">Email to a friend</a> </li>
+                            <li><a href="{{ route('listings.share.index', [$area, $listing])}}">Email to a friend</a> </li>
                             @if (!$listing->favouritedBy(Auth::user()))
                                 <li>
                                     <a href="#" onclick="event.preventDefault(); document.getElementById('listings-favourite-form').submit();">Add to favourites</a>
