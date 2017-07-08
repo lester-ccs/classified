@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use App\Category;
 use App\Area;
@@ -16,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        
+
         Area::creating(function ($area){
             $prefix = $area->parent ? $area->parent->name . ' ': '';
             $area->slug = str_slug($prefix . $area->name);
