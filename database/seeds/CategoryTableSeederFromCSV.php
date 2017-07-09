@@ -72,8 +72,13 @@ class CategoryTableSeederFromCSV extends Seeder
         }
         $categories = parseTree($tree);
 
-        foreach ($categories as $category) {
-            Category::create($category);
-        }
+        DB::transaction(function () use ($categories) {
+            foreach ($categories as $category) {
+                Category::create($category);
+            }
+        }, 5);
+//        foreach ($categories as $category) {
+//            Category::create($category);
+//        }
     }
 }
